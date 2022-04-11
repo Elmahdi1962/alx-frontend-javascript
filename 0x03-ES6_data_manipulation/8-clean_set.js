@@ -1,14 +1,15 @@
 export default function cleanSet(set, startString) {
-  let text = '';
-  const array = [];
+  const len = startString.length;
+  const selectedWords = [];
+  let txt = '';
 
-  if (startString && typeof startString === 'string') {
-    for (const element of set) {
-      if (element && element.startsWith(startString)) {
-        array.push(element.slice(startString.length));
+  if (startString && typeof (startString) === 'string') {
+    for (const elem of set) {
+      if (elem && elem.startsWith(startString)) {
+        selectedWords.push(elem.slice(len));
       }
     }
-    text = array.join('-');
+    txt = selectedWords.join('-');
   }
-  return text;
+  return txt;
 }
