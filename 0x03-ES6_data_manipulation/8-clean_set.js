@@ -1,11 +1,13 @@
 export default function cleanSet(set, startString) {
-  const arrayToStr = [];
+  const len = startString.length;
+  const selectedWords = [];
+
   if (startString) {
-    for (const value of set) {
-      if (value.startsWith(startString)) {
-        arrayToStr.push(value.slice(startString.length));
+    for (const v of set) {
+      if (v.startsWith(startString)) {
+        selectedWords.push(v.slice(len));
       }
     }
   }
-  return arrayToStr.join('-');
+  return selectedWords.join('-');
 }
