@@ -1,16 +1,13 @@
 export default function cleanSet(set, startString) {
   const len = startString.length;
+  const selectedWords = [];
   if (startString === '') return '';
-  let res = '';
-  for (const e of [...set]) {
+
+  for (const e of set) {
     if (e.startsWith(startString)) {
       const t = e.substring(len);
-      if (res === '') {
-        res += t;
-      } else {
-        res += `-${t}`;
-      }
+      selectedWords.push(t);
     }
   }
-  return res;
+  return selectedWords.join('-');
 }
