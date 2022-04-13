@@ -50,13 +50,20 @@ console.log(createEmployee('$500'));
 
 const isDirector = (employee: Teacher | Director): boolean => employee instanceof Director;
 
-const executeWork = (employee: Teacher | Director): void => {
+const executeWork = (employee: Teacher | Director): string => {
     let res;
     isDirector(employee) ? res = (employee as Director).workDirectorTasks() : res = (employee as Teacher).workTeacherTasks();
-    console.log(res);
-    // return res;
+    return res;
 };
 
-executeWork(createEmployee(200));
+console.log(executeWork(createEmployee(200)));
 
-executeWork(createEmployee(1000));
+console.log(executeWork(createEmployee(1000)));
+
+type Subjects = 'Math' | 'History';
+
+const teachClass = (todayClass: Subjects): string => todayClass === 'Math' ? 'Teaching Math' : 'Teaching History';
+
+console.log(teachClass('Math'));
+
+console.log(teachClass('History'));
